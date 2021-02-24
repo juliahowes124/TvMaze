@@ -79,7 +79,15 @@ $searchForm.on("submit", async function (evt) {
  *      { id, name, season, number }
  */
 
-// async function getEpisodesOfShow(id) { }
+async function getEpisodesOfShow(id) {
+  let response = await axios.get(`http://api.tvmaze.com/shows/${id}/episodes`);
+  return response.data.map((ep) => ({
+    id: ep.id,
+    name: ep.name,
+    season: ep.season,
+    number: ep.number
+  }));
+}
 
 /** Write a clear docstring for this function... */
 
