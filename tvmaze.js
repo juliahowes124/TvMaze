@@ -81,6 +81,7 @@ $searchForm.on("submit", async function (evt) {
 
 async function getEpisodesOfShow(id) {
   let response = await axios.get(`http://api.tvmaze.com/shows/${id}/episodes`);
+  //check that data is empty array if no episodes
   return response.data.map((ep) => ({
     id: ep.id,
     name: ep.name,
@@ -89,20 +90,23 @@ async function getEpisodesOfShow(id) {
   }));
 }
 
-/** Write a clear docstring for this function... */
-
+/** appends episode information to episode area in html */
 function populateEpisodes(episodes) {
-  let $episodList = $('#episodesList');
+  let $episodesList = $('#episodesList');
+  $episodesList.empty();
   for (let episode of episodes) {
     let $item = $(`<li>
       name ${episode.name}, season ${episode.season}, number ${episode.number} 
-    <li/>`);
-    $episodList.append($item);
+    </li>`);
+    $episodesList.append($item);
   }
+  $episodesArea.show();
 }
 
-$showsList.on('click', '.btn',function(evt){
+$showsList.on('click', '.btn', async function (evt) {
   let id = $(evt.target).closest(".Show").data("show-id");
-}) 
+  let episodes = await getEpisodesOfShow(id);
+  populateEpisodes(episodes);
+})
 
 
