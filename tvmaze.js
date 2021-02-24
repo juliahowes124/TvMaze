@@ -91,5 +91,18 @@ async function getEpisodesOfShow(id) {
 
 /** Write a clear docstring for this function... */
 
-// function populateEpisodes(episodes) { }
-//comment
+function populateEpisodes(episodes) {
+  let $episodList = $('#episodesList');
+  for (let episode of episodes) {
+    let $item = $(`<li>
+      name ${episode.name}, season ${episode.season}, number ${episode.number} 
+    <li/>`);
+    $episodList.append($item);
+  }
+}
+
+$showsList.on('click', '.btn',function(evt){
+  let id = $(evt.target).closest(".Show").data("show-id");
+}) 
+
+
