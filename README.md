@@ -1,5 +1,5 @@
 # TvMaze
-Rithm School Project
+[Rithm School](https://www.rithmschool.com/) Project
 
 ## Tools
 API: [tvmaze.com/api](https://www.tvmaze.com/api)
