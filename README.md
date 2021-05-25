@@ -5,6 +5,7 @@
 - Search functionality
 - Extracting images from api data
 - Modal with episodes list
+- Jasmine testing
 
 ## Tools
 API: [tvmaze.com/api](https://www.tvmaze.com/api)
