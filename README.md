@@ -1,6 +1,11 @@
 # TvMaze
 [Rithm School](https://www.rithmschool.com/) Project
 
+## Individual Contributions
+- Search functionality
+- Extracting images from api data
+- Modal with episodes list
+
 ## Tools
 API: [tvmaze.com/api](https://www.tvmaze.com/api)
 
